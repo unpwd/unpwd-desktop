@@ -46,11 +46,14 @@ jobs:
 
       - name: Install macOS Wails deps
         if: runner.os == 'macOS'
-        run: brew install mitchellh/gon/gon
+        run: brew install mitchellh/gon/gon create-dmg
 
       - name: Build macOS App
         if: runner.os == 'macOS'
-        run: wails build --platform darwin/universal
+        run: |
+          wails build --platform darwin/universal
+          create-dmg "./build/bin/UnPwd Desktop-mac.dmg" "./build/bin/UnPwd Desktop.app"
+          rm -rf "./build/bin/UnPwd Desktop.app"
 
       - name: Build Linux App
         if: runner.os == 'Linux'
