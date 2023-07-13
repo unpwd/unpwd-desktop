@@ -7,7 +7,7 @@
    ```
 3. Update git submodule
    ```bash
-   git submodule update
+   git submodule update --remote
    ```
 4. Go to the `frontend` directory and install the dependencies
    ```bash
